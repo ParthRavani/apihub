@@ -1,5 +1,5 @@
-from flask import render_template, url_for, flash, redirect, request, jsonify, json
-from imdb import app, db
+from flask import request, jsonify
+from imdb import app
 from imdb.models import Movie
 
 
@@ -35,10 +35,8 @@ def search():
         output.append(data)
 
     return jsonify({'movies': output})
-    # form = SearchForm()
-    # return render_template('home.html', movies=movies, form=form)
 
-#
-# @app.route("/", methods=['GET', 'POST'])
-# def home():
-#     return ''
+
+@app.route('/')
+def api_hub():
+    return 'Welcome to Api-hub!'
